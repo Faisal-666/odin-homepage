@@ -1,0 +1,171 @@
+:root {
+    --white: hsl(0, 0%, 100%);
+    --light-gray: hsl(0, 0%, 75%);
+    --gray: hsl(0, 0%, 50%);
+    --dark-gray: hsl(0, 0%, 25%);
+    --black: hsl(0, 0%, 0%);
+    --primary: hsl(192, 91%, 36%);
+
+    --box-shadow: 2px 2px 8px 0px hsla(0, 0%, 0%, 0.5);
+
+    --text-xs: 0.75rem;    /* 12px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;     /* 16px */
+    --text-lg: 1.125rem;   /* 18px */
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 2rem;      /* 32px */
+
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.5rem;    /* 24px */
+}
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Playfair_display';
+    src: url('./assets/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair_display', sans-serif;
+}
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--text-base);
+    color: var(--dark-gray);
+}
+a:has([icon]) {
+    display: flex;
+    align-items: center;
+}
+body {
+    height: 100%;
+    width: 100%;
+
+    overflow-x: hidden;
+}
+[icon] {
+    color: black;
+    font-size: var(--text-2xl);
+}
+/* div#bg {
+    position: relative;
+    width: 200vh;
+    height: 50vh;
+    
+    background-color: rgb(53, 84, 221);
+    transform: rotate(-15deg) scale(1.5) translateY(-30%);
+    z-index: -1;
+} */
+header {
+    margin-bottom: var(--space-5);
+}
+.profile {
+    position: relative;
+    width: 85%;
+    margin: var(--space-4) auto;
+    box-shadow: var(--box-shadow);
+}
+.profile img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.profile .name {
+    position: absolute;
+    color: var(--white);
+
+    left: var(--space-3);
+    bottom: var(--space-3);
+
+    line-height: 1.4;
+    font-weight: 500;
+    font-size: var(--text-3xl);
+    letter-spacing: var(--space-1);
+}
+
+.about > :not(.about p) {
+    text-align: center;
+    margin: var(--space-3) 0;
+}
+.about p {
+    margin: 0 var(--space-3);
+    
+    text-align: justify;
+    line-height: 1.4;
+}
+.about .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+main {
+    margin: var(--space-5) 0;
+    padding: var(--space-5) var(--space-3);
+}
+main h2 {
+    text-align: center;
+}
+
+footer {
+    position: relative;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: var(--space-3);
+}
+footer span {
+    display: block;
+}
+footer h2 {
+    text-align: center;
+    margin: var(--space-3) 0;
+}
+footer p {
+    color: var(--white);
+    font-weight: 500;
+}
+footer .icon-wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+}
+footer .icon-wrapper [icon] {
+    font-size: var(--text-3xl);
+}
+footer address > div {
+    padding: var(--space-4) 0;
+}
+footer .img-wrapper {
+    position: absolute;
+    width: 100%;
+    height: auto;
+
+    top: 100%;
+    left: 0;
+}
+footer .img-wrapper img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+    object-fit: cover;   
+}
