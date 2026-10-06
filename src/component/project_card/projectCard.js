@@ -1,5 +1,4 @@
 import './style.css';
-import 'iconify-icon';
 
 const projectCard = (bgColor) => {
     const card = document.createElement('div');

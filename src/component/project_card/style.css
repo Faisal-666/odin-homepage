@@ -1,6 +1,5 @@
 .project-card {
     height: 350px;
-    margin: var(--space-4) 0;
     box-shadow: var(--box-shadow);
 }
 .project-card .img-wrapper {
