@@ -6,7 +6,7 @@
     --black: hsl(0, 0%, 0%);
     --primary: hsl(192, 91%, 36%);
 
-    --box-shadow: 2px 2px 8px 0px hsla(0, 0%, 0%, 0.5);
+    --box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.5);
 
     --text-xs: 0.75rem;    /* 12px */
     --text-sm: 0.875rem;   /* 14px */
@@ -14,7 +14,12 @@
     --text-lg: 1.125rem;   /* 18px */
     --text-xl: 1.25rem;    /* 20px */
     --text-2xl: 1.5rem;    /* 24px */
-    --text-3xl: clamp(2.25rem, 3vw, 3.25rem);      /* 32px */
+    --text-3xl: 2rem;      /* 32px */
+
+    --text-h1: clamp(var(--text-3xl), 3.4vw, 3rem);
+    --text-h2: clamp(var(--text-2xl), 2.5vw, 2.1rem);
+    --text-h3: clamp(var(--text-xl), 1.8vw, 1.6rem);
+    --text-body: clamp(var(--text-base), 1vw, var(--text-lg));
 
     --space-1: 0.25rem;   /* 4px */
     --space-2: 0.5rem;    /* 8px */
@@ -43,9 +48,20 @@ h3,
 h4 {
     font-family: 'Playfair_display', sans-serif;
 }
+h1 {
+    font-size: var(--text-h1);
+}
+h2 {
+    font-size: var(--text-h2);
+    font-weight: 400;
+}
+h3 {
+    font-size: var(--text-h3);
+    font-weight: 400;
+}
 p {
     font-family: 'Roboto', sans-serif;
-    font-size: var(--text-base);
+    font-size: var(--text-body);
     color: var(--dark-gray);
 }
 a:has([icon]) {
@@ -60,7 +76,7 @@ body {
 }
 [icon] {
     color: black;
-    font-size: var(--text-2xl);
+    font-size: var(--text-h3);
 }
 /* div#bg {
     position: relative;
@@ -98,7 +114,6 @@ header {
     text-align: left;
     line-height: 1.4;
     font-weight: 500;
-    font-size: var(--text-3xl);
     letter-spacing: var(--space-1);
 }
 .about {
@@ -126,7 +141,6 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(296px, 1fr));
 
-    /* margin: var(--space-5) 0; */
     padding: var(--space-5) var(--space-3);
     gap: var(--space-5);
 }
@@ -163,9 +177,6 @@ footer .icon-wrapper {
     align-items: center;
     gap: var(--space-3);
 }
-footer .icon-wrapper [icon] {
-    font-size: var(--text-3xl);
-}
 footer address > div {
     padding: var(--space-4) 0;
 }
@@ -187,7 +198,7 @@ footer .img-wrapper img {
 
 @media (min-width: 768px) {
     body {
-        margin-top: 5rem;
+        margin-top: 7rem;
     }
     main {
         margin: 0 3rem;
@@ -199,10 +210,10 @@ footer .img-wrapper img {
 
     .about {
         display: flow-root;
-        width: 85%;
+        width: 600px;
         height: auto;
         margin: var(--space-5) auto;
-        padding: var(--space-2);
+        padding: var(--space-3);
 
         text-align: left;
         box-shadow: var(--box-shadow);
@@ -210,7 +221,10 @@ footer .img-wrapper img {
     
     .about div.profile {
         position: relative;
-        margin: -60px 0 20px 20px;
+        /* margin: -60px 0 20px 20px; */
+        margin-top: -100px;
+        margin-left: -40px;
+        margin-bottom: 0;
 
         width: 270px;
         height: 270px;
@@ -232,6 +246,9 @@ footer .img-wrapper img {
     .about .profile .name {
         position: absolute;
     }
+    .about p {
+        padding: var(--space-3);
+    }
     .about .icon-wrapper {
         position: absolute;
         margin: 0;
@@ -240,6 +257,8 @@ footer .img-wrapper img {
     }
     footer {
         display: flex;
+        justify-content: space-around;
+        gap: var(--space-3);
         padding: var(--space-3);
     }
     footer .img-wrapper {
@@ -254,8 +273,52 @@ footer .img-wrapper img {
         justify-content: start;
     }
 }
-/* @media (min-width: 1440px) {
+@media (min-width: 1024px) and (max-width: 1920px) {
     main {
-        margin: 0 7rem;
+        width: 85%;
+        margin: 5rem auto;
+        grid-template-columns: repeat(3, 1fr);
     }
-} */
+    .about {
+        width: 80%;
+        padding: var(--space-4);
+        margin: 5rem auto;
+    }
+    .about p {
+        font-size: var(--text-lg);
+    }
+    .about div.profile {
+        position: relative;
+        width: 370px;
+        height: 370px;
+        margin-top: 0;
+        margin-left: -50px;
+        float: left;
+
+        box-shadow: none;
+    }
+    .about h2 {
+        text-align: left;
+    }
+    .profile img {
+        margin: 0;
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    main h2 {
+        left: calc(5rem + var(--space-3));
+    }
+    address, address p {
+        font-size: var(--text-lg);
+    }
+    footer .img-wrapper {
+        position: static;
+        width: 540px;
+        height: 420px;
+    }
+    footer .img-wrapper img {
+        object-position: 0 25%;
+    }
+}
